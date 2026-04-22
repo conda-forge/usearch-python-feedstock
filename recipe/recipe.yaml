@@ -1,5 +1,5 @@
 context:
-  version: "2.23.0"
+  version: "2.25.1"
   fp16_commit: "0a92994d729ff76a58f692d3028ca1b64b145d91"
   stringzilla_commit: "2f4b1386ca2ed3c4178c1e4f467a2e78a911f3b2"
 
@@ -9,7 +9,7 @@ package:
 
 source:
   - url: https://github.com/unum-cloud/USearch/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: df1f370d60fb2bbeddf337c43cc2935e7a77500d2064dc3807d3d832b6b64cd3
+    sha256: 73d0241c86582ce291de61406c9eb82f35eeaef23b1cc18ab9a20788163f10b5
   - url: https://github.com/maratyszcza/fp16/archive/${{ fp16_commit }}.tar.gz
     sha256: a91f4770ff9c39f4d72e339c379f566b3bbb359fa66122d85fc0bae3dde7abc7
     target_directory: fp16
