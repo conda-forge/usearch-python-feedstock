@@ -1,7 +1,8 @@
 context:
   version: "2.25.1"
+  numkong_commit: "14daf40059045660775ec39d161f2b51e0a0f2dc"
   fp16_commit: "0a92994d729ff76a58f692d3028ca1b64b145d91"
-  stringzilla_commit: "2f4b1386ca2ed3c4178c1e4f467a2e78a911f3b2"
+  stringzilla_commit: "30d3e2129654d8269b3f66726414f9694c834e25"
 
 package:
   name: usearch-python
@@ -10,11 +11,14 @@ package:
 source:
   - url: https://github.com/unum-cloud/USearch/archive/refs/tags/v${{ version }}.tar.gz
     sha256: 73d0241c86582ce291de61406c9eb82f35eeaef23b1cc18ab9a20788163f10b5
+  - url: https://github.com/ashvardanian/NumKong/archive/${{ numkong_commit }}.tar.gz
+    sha256: 5ecc85f33ba5cd5cd7e1e41e022597f089ecdc6482f4a51a6482b934cee259db
+    target_directory: numkong
   - url: https://github.com/maratyszcza/fp16/archive/${{ fp16_commit }}.tar.gz
     sha256: a91f4770ff9c39f4d72e339c379f566b3bbb359fa66122d85fc0bae3dde7abc7
     target_directory: fp16
   - url: https://github.com/ashvardanian/StringZilla/archive/${{ stringzilla_commit }}.tar.gz
-    sha256: 8ba3c72fb36e97df5529a2df36652c61106057f88e9822af653377eef470ba55
+    sha256: d70fb6f4959945e9f791f623de6d6c49dada53431e2987a7a8449cd71b77ff3e
     target_directory: stringzilla
 
 build:
@@ -41,11 +45,13 @@ requirements:
   run:
     - python
     - numpy
+    - numkong >=7.5.0
     - tqdm
 
 tests:
   - python:
       imports:
+        - numkong
         - usearch
         - usearch.index
       pip_check: true
@@ -59,6 +65,7 @@ about:
   license_file:
     - LICENSE
     - fp16/LICENSE
+    - numkong/LICENSE
     - stringzilla/LICENSE
 
 extra:
